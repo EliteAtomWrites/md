@@ -1,0 +1,1748 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micheal & Hammed - Nigeria's Premier Escrow Freelance Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1DBF73;
+            --secondary: #3E9CFD;
+            --dark: #1A1A1A;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --danger: #DC3545;
+            --warning: #FFC107;
+            --success: #28A745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            font-size: 14px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #17a662;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--dark);
+            border: 1px solid var(--gray);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--light);
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            margin-bottom: 60px;
+        }
+        
+        .hero-slides {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .hero-content {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        /* Categories Section */
+        .categories {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .category-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .category-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .category-name {
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+        /* Featured Gigs */
+        .featured-gigs {
+            padding: 60px 0;
+        }
+        
+        .gig-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .gig-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .gig-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .gig-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .gig-content {
+            padding: 20px;
+        }
+        
+        .gig-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .seller-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .seller-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background-color: #ddd;
+        }
+        
+        .seller-name {
+            font-weight: 500;
+        }
+        
+        .rating {
+            color: #FFC107;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .gig-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .tag {
+            background-color: #e9f7ef;
+            color: var(--primary);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            margin: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        
+        .step-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial-card {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: """;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 80px;
+            color: var(--primary);
+            opacity: 0.2;
+            font-family: serif;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .client-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .client-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background-color: #ddd;
+        }
+        
+        .client-details h4 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .client-role {
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* Login/Register Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            animation: modalOpen 0.3s;
+        }
+        
+        @keyframes modalOpen {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(29, 191, 115, 0.1);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #17a662;
+        }
+        
+        .switch-form {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--gray);
+        }
+        
+        .switch-form a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .steps {
+                flex-direction: column;
+            }
+            
+            .step {
+                margin-bottom: 20px;
+            }
+        }
+        
+        /* Account Dashboard (Hidden by default) */
+        .dashboard {
+            display: none;
+            padding: 40px 0;
+        }
+        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .user-welcome {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .dashboard-nav {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .dashboard-nav button {
+            padding: 8px 16px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .dashboard-nav button.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .dashboard-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        /* Create Gig Form */
+        .create-gig-form {
+            display: none;
+        }
+        
+        .gig-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .gig-form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Messages/Forum Section */
+        .messages-container {
+            display: none;
+        }
+        
+        .messages-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .conversation-list {
+            width: 30%;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            height: 600px;
+            overflow-y: auto;
+        }
+        
+        .conversation-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+        }
+        
+        .conversation-item:hover {
+            background-color: #eee;
+        }
+        
+        .conversation-item.active {
+            background-color: #e9f7ef;
+        }
+        
+        .conversation-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .conversation-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ddd;
+        }
+        
+        .conversation-details {
+            flex: 1;
+        }
+        
+        .conversation-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .conversation-preview {
+            font-size: 14px;
+            color: var(--gray);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .conversation-time {
+            font-size: 12px;
+            color: var(--gray);
+        }
+        
+        .message-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+            height: 600px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+        }
+        
+        .message-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            font-weight: 600;
+        }
+        
+        .messages-list {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .message {
+            max-width: 70%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            position: relative;
+        }
+        
+        .message.sent {
+            align-self: flex-end;
+            background-color: var(--primary);
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .message.received {
+            align-self: flex-start;
+            background-color: #f1f1f1;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .message-time {
+            font-size: 12px;
+            margin-top: 5px;
+            opacity: 0.7;
+        }
+        
+        .message-input {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .message-input input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            margin-right: 10px;
+        }
+        
+        .message-input button {
+            padding: 12px 20px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+        
+        .messages-layout {
+            display: flex;
+            height: 100%;
+        }
+        
+        @media (max-width: 992px) {
+            .messages-layout {
+                flex-direction: column;
+            }
+            
+            .conversation-list {
+                width: 100%;
+                height: auto;
+                max-height: 200px;
+            }
+            
+            .message-area {
+                margin-left: 0;
+                margin-top: 20px;
+                height: 400px;
+            }
+        }
+        
+        /* Reviews Section */
+        .reviews-section {
+            margin-top: 30px;
+        }
+        
+        .review-item {
+            display: flex;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .reviewer-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 20px;
+            background-color: #ddd;
+            flex-shrink: 0;
+        }
+        
+        .review-content {
+            flex: 1;
+        }
+        
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .reviewer-name {
+            font-weight: 600;
+        }
+        
+        .review-date {
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .review-rating {
+            color: #FFC107;
+            margin-bottom: 10px;
+        }
+        
+        /* Search Bar */
+        .search-section {
+            padding: 40px 0;
+            background-color: white;
+            text-align: center;
+        }
+        
+        .search-container {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 20px 20px 20px 60px;
+            border-radius: 50px;
+            border: 2px solid #ddd;
+            font-size: 16px;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+            font-size: 20px;
+        }
+        
+        .search-button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            bottom: 5px;
+            padding: 0 30px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        /* Badge for new messages */
+        .badge {
+            background-color: var(--danger);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Micheal & <span>Hammed</span></a>
+                <div class="nav-links">
+                    <a href="#">Find Work</a>
+                    <a href="#">For Business</a>
+                    <a href="#">Resources</a>
+                    <a href="#">Support</a>
+                </div>
+                <div class="auth-buttons">
+                    <button class="btn btn-secondary" id="loginBtn">Log In</button>
+                    <button class="btn btn-primary" id="signupBtn">Sign Up</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Rotating Images -->
+    <section class="hero">
+        <div class="hero-slides">
+            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
+                <div class="hero-content">
+                    <h1>Find the Perfect Freelancer for Your Project</h1>
+                    <p>Connect with skilled professionals across Nigeria and beyond. Secure payments with our escrow system.</p>
+                    <button class="btn btn-primary">Start Exploring</button>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80')">
+                <div class="hero-content">
+                    <h1>Offer Your Services to Thousands of Clients</h1>
+                    <p>Create gigs, set your prices, and get paid securely through our escrow payment system.</p>
+                    <button class="btn btn-primary">Become a Seller</button>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
+                <div class="hero-content">
+                    <h1>Secure Escrow Payments</h1>
+                    <p>Funds are held securely until you approve the completed work. Peace of mind for both buyers and sellers.</p>
+                    <button class="btn btn-primary">Learn More</button>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
+                <div class="hero-content">
+                    <h1>Nigeria's Premier Freelance Platform</h1>
+                    <p>Join the fastest growing freelance community in Nigeria. Quality work guaranteed.</p>
+                    <button class="btn btn-primary">Join Now</button>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80')">
+                <div class="hero-content">
+                    <h1>Real Reviews, Real Results</h1>
+                    <p>Read verified reviews from real clients and freelancers to make informed decisions.</p>
+                    <button class="btn btn-primary">Browse Reviews</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="What service are you looking for?">
+                <button class="search-button">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Popular Categories</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <i class="fas fa-pen-fancy category-icon"></i>
+                    <h3 class="category-name">Graphic Design</h3>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-code category-icon"></i>
+                    <h3 class="category-name">Programming</h3>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-video category-icon"></i>
+                    <h3 class="category-name">Video Editing</h3>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-microphone category-icon"></i>
+                    <h3 class="category-name">Voice Over</h3>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-pencil-alt category-icon"></i>
+                    <h3 class="category-name">Content Writing</h3>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-mobile-alt category-icon"></i>
+                    <h3 class="category-name">App Development</h3>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-bullhorn category-icon"></i>
+                    <h3 class="category-name">Digital Marketing</h3>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-language category-icon"></i>
+                    <h3 class="category-name">Translation</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Gigs Section -->
+    <section class="featured-gigs">
+        <div class="container">
+            <h2 class="section-title">Featured Gigs</h2>
+            <div class="gig-grid">
+                <div class="gig-card">
+                    <div class="gig-image" style="background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
+                    <div class="gig-content">
+                        <h3 class="gig-title">Professional Logo Design</h3>
+                        <div class="seller-info">
+                            <div class="seller-avatar"></div>
+                            <span class="seller-name">John_Designer</span>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span> (4.8)</span>
+                        </div>
+                        <div class="price">₦25,000</div>
+                        <div class="gig-tags">
+                            <span class="tag">Logo</span>
+                            <span class="tag">Branding</span>
+                            <span class="tag">Vector</span>
+                        </div>
+                        <button class="btn btn-primary">View Details</button>
+                    </div>
+                </div>
+                <div class="gig-card">
+                    <div class="gig-image" style="background-image: url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
+                    <div class="gig-content">
+                        <h3 class="gig-title">Mobile App Development</h3>
+                        <div class="seller-info">
+                            <div class="seller-avatar"></div>
+                            <span class="seller-name">TechSolutions</span>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span> (5.0)</span>
+                        </div>
+                        <div class="price">₦150,000</div>
+                        <div class="gig-tags">
+                            <span class="tag">Android</span>
+                            <span class="tag">iOS</span>
+                            <span class="tag">Flutter</span>
+                        </div>
+                        <button class="btn btn-primary">View Details</button>
+                    </div>
+                </div>
+                <div class="gig-card">
+                    <div class="gig-image" style="background-image: url('https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80')"></div>
+                    <div class="gig-content">
+                        <h3 class="gig-title">Professional Voice Over</h3>
+                        <div class="seller-info">
+                            <div class="seller-avatar"></div>
+                            <span class="seller-name">VoiceQueen</span>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span> (4.2)</span>
+                        </div>
+                        <div class="price">₦15,000</div>
+                        <div class="gig-tags">
+                            <span class="tag">English</span>
+                            <span class="tag">Commercial</span>
+                            <span class="tag">Recording</span>
+                        </div>
+                        <button class="btn btn-primary">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How Micheal & Hammed Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Sign Up</h3>
+                    <p>Create your free account as a buyer or seller. Complete your profile to get started.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Find or List Gigs</h3>
+                    <p>Buyers can search for services. Sellers can create gigs showcasing their skills.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Secure Payment</h3>
+                    <p>Buyers pay through our escrow system. Funds are held securely until work is approved.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Get Work Done</h3>
+                    <p>Communicate with your freelancer/client, review progress, and approve completed work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Users Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">I've been using Micheal & Hammed for my business needs for over a year now. The escrow system gives me peace of mind, and I've found some amazing talent here!</p>
+                    <div class="client-info">
+                        <div class="client-avatar"></div>
+                        <div class="client-details">
+                            <h4>Amina Yusuf</h4>
+                            <p class="client-role">Small Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">As a freelancer, this platform has changed my life. I can now work with clients across Nigeria without worrying about payment. The commission is fair and the support is excellent.</p>
+                    <div class="client-info">
+                        <div class="client-avatar"></div>
+                        <div class="client-details">
+                            <h4>Tunde Okoro</h4>
+                            <p class="client-role">Graphic Designer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The communication tools on this platform make it easy to collaborate with freelancers. I love that I can release payment only when I'm completely satisfied with the work.</p>
+                    <div class="client-info">
+                        <div class="client-avatar"></div>
+                        <div class="client-details">
+                            <h4>Chioma Nwosu</h4>
+                            <p class="client-role">Marketing Director</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Micheal & Hammed</h3>
+                    <p>Nigeria's premier freelance platform with secure escrow payments. Connecting buyers and sellers since 2023.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>For Buyers</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">How to Buy</a></li>
+                        <li><a href="#">Buyer Protection</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                        <li><a href="#">Customer Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>For Sellers</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">How to Sell</a></li>
+                        <li><a href="#">Seller Success</a></li>
+                        <li><a href="#">Create a Gig</a></li>
+                        <li><a href="#">Seller Resources</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Micheal & Hammed. All rights reserved. | <a href="#" style="color: #aaa;">Privacy Policy</a> | <a href="#" style="color: #aaa;">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Log In to Your Account</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" class="form-control" required>
+                </div>
+                <button type="submit" class="submit-btn">Log In</button>
+            </form>
+            <div class="switch-form">
+                Don't have an account? <a href="#" id="switchToSignup">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Create Your Account</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <input type="email" id="signupEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="accountType">Account Type</label>
+                    <select id="accountType" class="form-control" required>
+                        <option value="">Select Account Type</option>
+                        <option value="buyer">Buyer (I need services)</option>
+                        <option value="seller">Seller (I offer services)</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Create Account</button>
+            </form>
+            <div class="switch-form">
+                Already have an account? <a href="#" id="switchToLogin">Log In</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard (Hidden by default) -->
+    <section class="dashboard" id="dashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2 class="user-welcome">Welcome, <span id="userName">User</span>!</h2>
+                <div class="dashboard-nav">
+                    <button class="active" data-tab="overview">Overview</button>
+                    <button data-tab="gigs">My Gigs</button>
+                    <button data-tab="orders">My Orders</button>
+                    <button data-tab="messages">Messages <span class="badge">3</span></button>
+                    <button data-tab="reviews">Reviews</button>
+                    <button data-tab="settings">Settings</button>
+                    <button id="logoutBtn">Log Out</button>
+                </div>
+            </div>
+            <div class="dashboard-content">
+                <!-- Overview Tab -->
+                <div id="overviewTab">
+                    <h3>Dashboard Overview</h3>
+                    <p>Welcome to your Micheal & Hammed dashboard. Here you can manage your gigs, orders, messages, and account settings.</p>
+                    <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                        <div style="background-color: #e9f7ef; padding: 20px; border-radius: 10px; text-align: center;">
+                            <h4>Total Earnings</h4>
+                            <h2 style="color: var(--primary);">₦0</h2>
+                        </div>
+                        <div style="background-color: #e3f2fd; padding: 20px; border-radius: 10px; text-align: center;">
+                            <h4>Active Orders</h4>
+                            <h2 style="color: var(--secondary);">0</h2>
+                        </div>
+                        <div style="background-color: #fff3e0; padding: 20px; border-radius: 10px; text-align: center;">
+                            <h4>Completion Rate</h4>
+                            <h2 style="color: var(--warning);">0%</h2>
+                        </div>
+                        <div style="background-color: #f1f8e9; padding: 20px; border-radius: 10px; text-align: center;">
+                            <h4>Average Rating</h4>
+                            <h2 style="color: var(--success);">0.0</h2>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 40px;">
+                        <h3>Quick Actions</h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px;">
+                            <button id="createGigBtn" class="btn btn-primary">Create a New Gig</button>
+                            <button class="btn btn-secondary">Browse for Services</button>
+                            <button class="btn btn-secondary">View Messages</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Create Gig Form -->
+                <div id="createGigTab" class="create-gig-form">
+                    <h3>Create a New Gig</h3>
+                    <form id="gigForm" style="margin-top: 30px;">
+                        <div class="form-group">
+                            <label for="gigTitle">Gig Title</label>
+                            <input type="text" id="gigTitle" class="form-control" placeholder="I will design a professional logo for your brand" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gigCategory">Category</label>
+                            <select id="gigCategory" class="form-control" required>
+                                <option value="">Select a Category</option>
+                                <option value="graphic-design">Graphic Design</option>
+                                <option value="programming">Programming & Tech</option>
+                                <option value="video-editing">Video Editing</option>
+                                <option value="voice-over">Voice Over</option>
+                                <option value="writing">Writing & Translation</option>
+                                <option value="marketing">Digital Marketing</option>
+                            </select>
+                        </div>
+                        <div class="gig-form-grid">
+                            <div class="form-group">
+                                <label for="gigPrice">Price (₦)</label>
+                                <input type="number" id="gigPrice" class="form-control" min="1000" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="deliveryTime">Delivery Time (Days)</label>
+                                <input type="number" id="deliveryTime" class="form-control" min="1" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="gigDescription">Description</label>
+                            <textarea id="gigDescription" class="form-control" rows="5" placeholder="Describe what you will do, what makes your service unique, and any requirements from buyers." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="gigTags">Tags (comma separated)</label>
+                            <input type="text" id="gigTags" class="form-control" placeholder="logo, branding, vector, design">
+                        </div>
+                        <div class="form-group">
+                            <label for="gigImage">Gig Image URL</label>
+                            <input type="url" id="gigImage" class="form-control" placeholder="https://example.com/image.jpg">
+                        </div>
+                        <button type="submit" class="submit-btn">Publish Gig</button>
+                    </form>
+                </div>
+
+                <!-- Messages Tab -->
+                <div id="messagesTab" class="messages-container">
+                    <div class="messages-header">
+                        <h3>Messages</h3>
+                        <button class="btn btn-primary">New Message</button>
+                    </div>
+                    <div class="messages-layout">
+                        <div class="conversation-list">
+                            <div class="conversation-item active">
+                                <div class="conversation-info">
+                                    <div class="conversation-avatar"></div>
+                                    <div class="conversation-details">
+                                        <div class="conversation-name">Adeola Martins</div>
+                                        <div class="conversation-preview">Hi, I'm interested in your logo design gig...</div>
+                                    </div>
+                                    <div class="conversation-time">2m ago</div>
+                                </div>
+                            </div>
+                            <div class="conversation-item">
+                                <div class="conversation-info">
+                                    <div class="conversation-avatar"></div>
+                                    <div class="conversation-details">
+                                        <div class="conversation-name">Chinedu Okafor</div>
+                                        <div class="conversation-preview">When can you start the project?</div>
+                                    </div>
+                                    <div class="conversation-time">1h ago</div>
+                                </div>
+                            </div>
+                            <div class="conversation-item">
+                                <div class="conversation-info">
+                                    <div class="conversation-avatar"></div>
+                                    <div class="conversation-details">
+                                        <div class="conversation-name">Bolanle Adeyemi</div>
+                                        <div class="conversation-preview">Thank you for the great work!</div>
+                                    </div>
+                                    <div class="conversation-time">3d ago</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message-area">
+                            <div class="message-header">Chat with Adeola Martins</div>
+                            <div class="messages-list">
+                                <div class="message received">
+                                    <div class="message-content">Hi there! I'm interested in your logo design gig. Can you create something modern for my tech startup?</div>
+                                    <div class="message-time">Today, 10:30 AM</div>
+                                </div>
+                                <div class="message sent">
+                                    <div class="message-content">Hello Adeola! Yes, I specialize in modern logo designs for tech companies. Could you share more details about your brand?</div>
+                                    <div class="message-time">Today, 10:35 AM</div>
+                                </div>
+                                <div class="message received">
+                                    <div class="message-content">Great! We're called "TechNova" and we're building AI solutions for Nigerian businesses. I'd like something that represents innovation and growth.</div>
+                                    <div class="message-time">Today, 10:42 AM</div>
+                                </div>
+                            </div>
+                            <div class="message-input">
+                                <input type="text" placeholder="Type your message...">
+                                <button>Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Tab -->
+                <div id="reviewsTab" class="reviews-section">
+                    <h3>Your Reviews</h3>
+                    <p style="margin-bottom: 30px;">Reviews from clients who have hired you for your services.</p>
+                    
+                    <div class="review-item">
+                        <div class="reviewer-avatar"></div>
+                        <div class="review-content">
+                            <div class="review-header">
+                                <div class="reviewer-name">Emeka Johnson</div>
+                                <div class="review-date">2 weeks ago</div>
+                            </div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>Amazing work! The logo design was exactly what I envisioned for my company. Quick delivery and excellent communication throughout the process. Highly recommended!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="review-item">
+                        <div class="reviewer-avatar"></div>
+                        <div class="review-content">
+                            <div class="review-header">
+                                <div class="reviewer-name">Fatima Ibrahim</div>
+                                <div class="review-date">1 month ago</div>
+                            </div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p>Very professional designer. Made several revisions until I was completely satisfied. The final product looks fantastic on our website and business cards. Will definitely hire again!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Firebase and JavaScript -->
+    <script>
+        // Initialize Firebase (This should be on server side in production)
+        const firebaseConfig = {
+            apiKey: "AIzaSyDsfVhzuTV60ttYUijAcwuysq2GuNedlkY",
+            authDomain: "fiverrclone-fa639.firebaseapp.com",
+            projectId: "fiverrclone-fa639",
+            storageBucket: "fiverrclone-fa639.firebasestorage.app",
+            messagingSenderId: "254377840802",
+            appId: "1:254377840802:web:31a434068a4e3ce1ae07fb",
+            measurementId: "G-P2B9Z95G0X"
+        };
+        
+        // Simulate Firebase initialization
+        console.log("Firebase initialized with config:", firebaseConfig);
+        
+        // IMPORTANT: In a real application, you would NEVER put your Paystack secret key in frontend code
+        // This is just a placeholder to show where it would go in a backend environment
+        const PAYSTACK_PUBLIC_KEY = "pk_live_4c1b8a520c665191d48666564fd19e11feadb30e"; // DO NOT EXPOSE IN PRODUCTION
+        
+        // Hero Slider Functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        function showNextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % totalSlides;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        // Change slide every 10 seconds
+        setInterval(showNextSlide, 10000);
+        
+        // Modal Functionality
+        const loginBtn = document.getElementById('loginBtn');
+        const signupBtn = document.getElementById('signupBtn');
+        const loginModal = document.getElementById('loginModal');
+        const signupModal = document.getElementById('signupModal');
+        const closeButtons = document.querySelectorAll('.close-modal');
+        const switchToSignup = document.getElementById('switchToSignup');
+        const switchToLogin = document.getElementById('switchToLogin');
+        
+        loginBtn.addEventListener('click', () => {
+            loginModal.style.display = 'flex';
+        });
+        
+        signupBtn.addEventListener('click', () => {
+            signupModal.style.display = 'flex';
+        });
+        
+        closeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                loginModal.style.display = 'none';
+                signupModal.style.display = 'none';
+            });
+        });
+        
+        switchToSignup.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginModal.style.display = 'none';
+            signupModal.style.display = 'flex';
+        });
+        
+        switchToLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            signupModal.style.display = 'none';
+            loginModal.style.display = 'flex';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+            if (e.target === signupModal) {
+                signupModal.style.display = 'none';
+            }
+        });
+        
+        // Form Submissions (Simulated)
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            alert('Login successful! In a real app, you would be redirected to your dashboard.');
+            loginModal.style.display = 'none';
+            showDashboard(email.split('@')[0]);
+        });
+        
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const accountType = document.getElementById('accountType').value;
+            
+            // In a real app, this would send a verification email
+            alert(`Account created successfully! Check ${email} for verification. Welcome to Micheal & Hammed!`);
+            signupModal.style.display = 'none';
+            showDashboard(name);
+        });
+        
+        function showDashboard(userName) {
+            document.querySelector('header').style.display = 'none';
+            document.querySelector('.hero').style.display = 'none';
+            document.querySelector('.search-section').style.display = 'none';
+            document.querySelector('.categories').style.display = 'none';
+            document.querySelector('.featured-gigs').style.display = 'none';
+            document.querySelector('.how-it-works').style.display = 'none';
+            document.querySelector('.testimonials').style.display = 'none';
+            document.querySelector('footer').style.display = 'none';
+            
+            document.getElementById('userName').textContent = userName;
+            document.getElementById('dashboard').style.display = 'block';
+            
+            // Simulate sending welcome email
+            console.log(`Sending welcome email to user: ${userName}`);
+        }
+        
+        // Dashboard Navigation
+        const dashboardNavButtons = document.querySelectorAll('.dashboard-nav button[data-tab]');
+        const logoutBtn = document.getElementById('logoutBtn');
+        
+        dashboardNavButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                dashboardNavButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Hide all tabs
+                document.getElementById('overviewTab').style.display = 'none';
+                document.getElementById('createGigTab').style.display = 'none';
+                document.getElementById('messagesTab').style.display = 'none';
+                document.getElementById('reviewsTab').style.display = 'none';
+                
+                // Show selected tab
+                const tabId = button.getAttribute('data-tab');
+                if (tabId === 'gigs') {
+                    document.getElementById('createGigTab').style.display = 'block';
+                } else if (tabId === 'messages') {
+                    document.getElementById('messagesTab').style.display = 'block';
+                } else if (tabId === 'reviews') {
+                    document.getElementById('reviewsTab').style.display = 'block';
+                } else {
+                    document.getElementById('overviewTab').style.display = 'block';
+                }
+            });
+        });
+        
+        // Create Gig Button
+        document.getElementById('createGigBtn').addEventListener('click', () => {
+            // Hide overview and show create gig form
+            document.getElementById('overviewTab').style.display = 'none';
+            document.getElementById('createGigTab').style.display = 'block';
+            
+            // Set active button
+            dashboardNavButtons.forEach(btn => btn.classList.remove('active'));
+            Array.from(dashboardNavButtons).find(btn => btn.getAttribute('data-tab') === 'gigs').classList.add('active');
+        });
+        
+        // Gig Form Submission
+        document.getElementById('gigForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Gig created successfully! It will be reviewed and published shortly.');
+            // Reset form
+            this.reset();
+            // Go back to overview
+            document.getElementById('createGigTab').style.display = 'none';
+            document.getElementById('overviewTab').style.display = 'block';
+            
+            // Set active button
+            dashboardNavButtons.forEach(btn => btn.classList.remove('active'));
+            Array.from(dashboardNavButtons).find(btn => btn.getAttribute('data-tab') === 'overview').classList.add('active');
+        });
+        
+        // Logout Functionality
+        logoutBtn.addEventListener('click', () => {
+            document.getElementById('dashboard').style.display = 'none';
+            document.querySelector('header').style.display = 'block';
+            document.querySelector('.hero').style.display = 'block';
+            document.querySelector('.search-section').style.display = 'block';
+            document.querySelector('.categories').style.display = 'block';
+            document.querySelector('.featured-gigs').style.display = 'block';
+            document.querySelector('.how-it-works').style.display = 'block';
+            document.querySelector('.testimonials').style.display = 'block';
+            document.querySelector('footer').style.display = 'block';
+        });
+        
+        // Search Functionality
+        document.querySelector('.search-button').addEventListener('click', () => {
+            const searchTerm = document.querySelector('.search-input').value;
+            if (searchTerm) {
+                alert(`Searching for: ${searchTerm}\nIn a real application, this would show relevant results.`);
+            }
+        });
+        
+        // Security Note: This is a frontend prototype only
+        console.warn("SECURITY WARNING: This is a frontend prototype. In production, you need:");
+        console.warn("1. Backend server to handle Paystack transactions securely");
+        console.warn("2. Server-side validation and authentication");
+        console.warn("3. Proper Firebase security rules");
+        console.warn("4. HTTPS encryption");
+        console.warn("5. Input sanitization to prevent XSS attacks");
+        console.warn("6. CSRF protection");
+        console.warn("7. Rate limiting to prevent brute force attacks");
+        console.warn("8. Never expose API keys in frontend code");
+    </script>
+</body>
+</html>
